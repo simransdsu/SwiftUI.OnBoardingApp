@@ -28,7 +28,7 @@ struct OnBoardingView: View {
     
     var body: some View {
         VStack {
-            PageViewController(viewController: subViews).frame(height: 600)
+            PageViewController(currentPageIndex: $currentPageIndex, viewController: subViews).frame(height: 600)
             Button(action: {
                 if self.currentPageIndex+1 == self.subViews.count {
                     self.currentPageIndex = 0

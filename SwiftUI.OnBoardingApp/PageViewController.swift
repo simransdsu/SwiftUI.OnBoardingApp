@@ -13,6 +13,8 @@ import UIKit
 struct PageViewController : UIViewControllerRepresentable {
     typealias UIViewControllerType = UIPageViewController
     
+    @Binding var currentPageIndex: Int
+    
     var viewController: [UIViewController]
     
     func makeUIViewController(context: Context) -> UIPageViewController {
@@ -24,7 +26,7 @@ struct PageViewController : UIViewControllerRepresentable {
     
     
     func updateUIViewController(_ pageViewController: UIPageViewController, context: Context) {
-        pageViewController.setViewControllers([viewController[0]], direction: .forward, animated: true)
+        pageViewController.setViewControllers([viewController[currentPageIndex]], direction: .forward, animated: true)
     }
     
     func makeCoordinator() -> Coordinator {
